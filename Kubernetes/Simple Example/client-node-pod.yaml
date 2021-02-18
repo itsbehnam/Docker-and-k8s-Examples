@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort
+  ports:
+    - port: 3050        #within the cluster
+      targetPort: 3000  #container port
+      nodePort: 31515   #outside the cluster
+  selector:
+    component: web

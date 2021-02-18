@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: default-http-backend  # Got the name from kubectl describe ingress INGRESSNAME -n NAMESPACE
+spec:
+  selector:
+    app: default-response-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
